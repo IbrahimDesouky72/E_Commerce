@@ -5,13 +5,12 @@
  */
 package controlles;
 
-import java.io.Serializable;
 
 /**
  *
  * @author M.Gebaly
  */
-public class User implements Serializable{
+public class User {
     private int id;
     private String name;
     private String date;
