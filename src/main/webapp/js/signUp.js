@@ -20,36 +20,40 @@ password.onchange = validatePassword;
 confirm_password.onkeyup = validatePassword;
 
 
-//$(document).ready(function(){
-//    $("#register").click(function(){
-//        var fname=$("#fname").val();
-//        var lname=$("#lname").val();
-//        var email=$("#email").val();
-//        var password=$("#password").val();
-//        var birthDate=$("#birthDate").val();
-//        var Address=$("#Address").val();
-//        var job=$("#job").val();
-//        var creditLimit=$("#creditLimit").val();
-//        
-//        
-//        
-//        
-//        var JsonMessage={"fname":fname,"lname":lname,"email":email,"password":password,"birthDate":birthDate,"Address":Address
-//            ,"job":job,"creditLimit":creditLimit};
-//        $("#msg").val('');
-//        $.ajax({
-//            
-//            url:"SignUp" ,
-//            dataType: 'json',
-//            data:JsonMessage,
-//            success:function (data){
-//                alert(data);
-//                
-//            }
-//            
-//        });
-//    });
-//});
+$(document).ready(function(){
+    $("#register").click(function(){
+        var fname=$("#fname").val();
+        var lname=$("#lname").val();
+        var email=$("#email").val();
+        var password=$("#password").val();
+        var birthDate=$("#birthDate").val();
+        var Address=$("#Address").val();
+        var job=$("#job").val();
+        var creditLimit=$("#creditLimit").val();
+        
+        
+        
+        
+        var JsonMessage={"fname":fname,"lname":lname,"email":email,"password":password,"birthDate":birthDate,"Address":Address
+            ,"job":job,"creditLimit":creditLimit};
+        
+        $.ajax({
+            
+            url:"SignUp" ,
+            dataType: 'json',
+            data:JsonMessage,
+            success:function (response){
+                if(response==true){
+                    window.location="login.html";
+                }else{
+                    $('#emailexist').html("The Email is Already exist");
+                }
+                
+            }
+            
+        });
+    });
+});
     
 
 

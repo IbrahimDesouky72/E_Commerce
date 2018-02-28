@@ -45,14 +45,14 @@ public class SignUp extends HttpServlet {
         String job = request.getParameter("job");
         double creditLimitNumber=Double.parseDouble(creditLimit);
         
-            out.print(fname);
-             out.print(lname);
-              out.print(email);
-               out.print(password);
-                out.print(address);
-                 out.print(creditLimit);
-                  out.print(birthDate);
-                   out.print(job);
+//            out.print(fname);
+//             out.print(lname);
+//              out.print(email);
+//               out.print(password);
+//                out.print(address);
+//                 out.print(creditLimit);
+//                  out.print(birthDate);
+//                   out.print(job);
                     
                     
                     
@@ -62,7 +62,15 @@ public class SignUp extends HttpServlet {
             
         
         boolean result=userTableOperations.signUpHandler(user);
-        out.print(result);
+        if(result){
+            //response.sendRedirect("login.html");
+            out.write("true");
+        }else{
+            out.write("false");
+//            response.sendRedirect("register.html");
+        
+        }
+//        out.print(result);
         
         
         }
