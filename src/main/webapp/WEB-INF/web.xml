@@ -4,9 +4,17 @@
         <servlet-name>GetUsersToAdmin</servlet-name>
         <servlet-class>servlets.GetUsersToAdmin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SignUp</servlet-name>
+        <servlet-class>servlets.SignUp</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>GetUsersToAdmin</servlet-name>
         <url-pattern>/GetUsersToAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignUp</servlet-name>
+        <url-pattern>/SignUp</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

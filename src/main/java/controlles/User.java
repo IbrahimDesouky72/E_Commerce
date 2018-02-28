@@ -85,6 +85,18 @@ public class User {
         return password;
     }
 
+    public User( String name, String date, String email, String password, String job, double cridet, String address, int admin) {
+        
+        this.name = name;
+        this.date = date;
+        this.email = email;
+        this.password = password;
+        this.job = job;
+        this.cridet = cridet;
+        this.address = address;
+        this.admin = admin;
+    }
+
     /**
      * @param password the password to set
      */

@@ -21,36 +21,62 @@
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Register an Account</div>
       <div class="card-body">
-        <form>
+          <form action="SignUp">
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
-                <label for="exampleInputName">First name</label>
-                <input class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Enter first name">
+                <label for="fnam">First name</label>
+                <input class="form-control" id="fname" type="text" aria-describedby="nameHelp" name="fname" placeholder="Enter first name" required>
               </div>
               <div class="col-md-6">
-                <label for="exampleInputLastName">Last name</label>
-                <input class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" placeholder="Enter last name">
+                <label for="lname">Last name</label>
+                <input class="form-control" id="lname" type="text" aria-describedby="nameHelp"  name="lname" placeholder="Enter last name" required>
               </div>
             </div>
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <label for="email">Email address</label>
+            <input class="form-control" id="email" type="email" aria-describedby="emailHelp" name="email" placeholder="Enter email" required>
+            <span id='emailexist'></span>
+
           </div>
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
-                <label for="exampleInputPassword1">Password</label>
-                <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
+                <label for="password">Password</label>
+                <input class="form-control" id="password" type="password" name="password" placeholder="Password" required>
               </div>
               <div class="col-md-6">
-                <label for="exampleConfirmPassword">Confirm password</label>
-                <input class="form-control" id="exampleConfirmPassword" type="password" placeholder="Confirm password">
+                <label for="confirm_password">Confirm password</label>
+                    <input class="form-control" id="confirm_password" type="password" name="confirmPass" placeholder="Confirm password" required>
               </div>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="login.html">Register</a>
+            <div class="form-group">
+            <label for="birthDate">Birth Date</label>
+            <input class="form-control" id="birthDate" type="date" aria-describedby="emailHelp" name="birthDate" required>
+          </div>
+            
+            <div class="form-group">
+            <label for="Address">Address</label>
+            <input class="form-control" id="Address" type="text" aria-describedby="emailHelp" name="address" placeholder="Address" required>
+          </div>
+            
+            <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <label for="job">Job</label>
+                <input class="form-control" id="job" type="text" name="job" placeholder="JOB" required>
+              </div>
+              <div class="col-md-6">
+                <label for="creditLimit">Credit Limit</label>
+                <input class="form-control" id="creditLimit" type="number" name="creditLimit" placeholder="CreditLimit" required>
+              </div>
+            </div>
+          </div>
+            <input type="submit" class="btn btn-primary btn-block" value="Register" id="register">
+            
+<!--          <a class="btn btn-primary btn-block" href="login.html">Register</a>-->
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="login.html">Login Page</a>
@@ -64,6 +90,7 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="js/signUp.js"></script>
 </body>
 
 </html>
