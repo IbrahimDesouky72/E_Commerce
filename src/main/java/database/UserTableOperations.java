@@ -8,6 +8,8 @@ package database;
 import controlles.User;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -118,4 +120,36 @@ public class UserTableOperations {
         }
         return retValue;
     }
+    
+    // Esraa Eid starts
+    public List<User> retriveAllUsers(){
+        List<User> usersResult = new ArrayList<User>();
+        String query = "select * from "
+                + DatabaseTables.UserTable.tableName ;
+        //boolean unique = false;
+        ResultSet resultSet = DatabaseHandler.getInstance().select(query);
+        
+        try {
+            while (resultSet.next()) {
+                User user = new User();
+                user.setId(resultSet.getInt(DatabaseTables.UserTable.idColumn));
+                user.setName(resultSet.getString(DatabaseTables.UserTable.nameColumn));
+                user.setDate(resultSet.getString(DatabaseTables.UserTable.birthdateColumn));
+                user.setEmail(resultSet.getString(DatabaseTables.UserTable.emailColumn));
+                user.setPassword(resultSet.getString(DatabaseTables.UserTable.passwordColumn));
+                user.setJob(resultSet.getString(DatabaseTables.UserTable.jobColumn));
+                user.setCridet(resultSet.getInt(DatabaseTables.UserTable.crediteColumn));
+                user.setAddress(resultSet.getString(DatabaseTables.UserTable.addressColumn));
+                user.setAdmin(resultSet.getInt(DatabaseTables.UserTable.adminColumn));
+                
+                usersResult.add(user);
+            }
+            
+            resultSet.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserTableOperations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return usersResult;
+    }
+    // Esraa Eid ends
 }
