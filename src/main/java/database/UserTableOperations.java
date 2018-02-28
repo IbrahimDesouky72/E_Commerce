@@ -87,4 +87,35 @@ public class UserTableOperations {
         }
         return user;
     }
+    
+    public boolean editeUser(User user) {
+        boolean retValue = true;
+        try {
+            String query = " select " + DatabaseTables.UserTable.idColumn
+                    + " from " + DatabaseTables.UserTable.tableName
+                    + " where " + DatabaseTables.UserTable.emailColumn + " = '" + user.getEmail() + "'";
+            ResultSet resultSet = DatabaseHandler.getInstance().select(query);
+            if (resultSet.next()) {
+                user.setId(resultSet.getInt(DatabaseTables.UserTable.idColumn));
+                String updatequery = "update " + DatabaseTables.UserTable.tableName
+                        + " set " + DatabaseTables.UserTable.nameColumn + " = '" + user.getName() + "' , "
+                        + DatabaseTables.UserTable.birthdateColumn + " = " + "TO_DATE('" + user.getDate() + "', 'yyyy-mm-dd'),"
+                        + DatabaseTables.UserTable.emailColumn + " = '" + user.getEmail() + "' , "
+                        + DatabaseTables.UserTable.passwordColumn + " = '" + user.getPassword() + "' , "
+                        + DatabaseTables.UserTable.jobColumn + " = '" + user.getJob() + "' , "
+                        + DatabaseTables.UserTable.crediteColumn + " = " + user.getCridet() + " , "
+                        + DatabaseTables.UserTable.addressColumn + " = '" + user.getAddress() + "' , "
+                        + DatabaseTables.UserTable.adminColumn + " = " + user.getAdmin() + " "
+                        + " where " + DatabaseTables.UserTable.idColumn + " = " + user.getId();
+                DatabaseHandler.getInstance().update(updatequery);
+
+            } else {
+                retValue = false;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UserTableOperations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retValue;
+    }
 }
