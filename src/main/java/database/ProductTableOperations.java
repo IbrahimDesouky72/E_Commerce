@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  * @author M.Gebaly
  */
 public class ProductTableOperations {
-    
+
     public boolean addProduct(Products product) {
         boolean retValue = true;
 
@@ -40,7 +40,7 @@ public class ProductTableOperations {
 
         return retValue;
     }
-    
+
     public ArrayList<Products> getAllProducts() {
         ArrayList<Products> products = new ArrayList<Products>();
         String query = "select * "
@@ -64,5 +64,26 @@ public class ProductTableOperations {
             Logger.getLogger(UserTableOperations.class.getName()).log(Level.SEVERE, null, ex);
         }
         return products;
+    }
+
+    public void updateProduct(Products prouduct) {
+        //boolean retValue = true;
+
+        String sql = "UPDATE " + DatabaseTables.ProductsTable.tableName
+                + " SET " + DatabaseTables.ProductsTable.nameColumn + " = '" + prouduct.getName()
+                + "', " + DatabaseTables.ProductsTable.descriptionColumn + " = '" + prouduct.getDescription()
+                + "', " + DatabaseTables.ProductsTable.quantitiyColumn + " = " + prouduct.getQuantity()
+                + ", " + DatabaseTables.ProductsTable.imageColumn + " = '" + prouduct.getImage()
+                + "', " + DatabaseTables.ProductsTable.salaryColumn + " = " + prouduct.getSalary()
+                + ", " + DatabaseTables.ProductsTable.categoryColumn + " = " + prouduct.getCategory()
+                + " WHERE " + DatabaseTables.ProductsTable.idColumn + " = " + prouduct.getId();
+
+        DatabaseHandler.getInstance().update(sql);
+    }
+
+    public void deleteProduct(Products product) {
+        String sql = "Delete FROM " + DatabaseTables.ProductsTable.tableName
+                + " WHERE " + DatabaseTables.ProductsTable.idColumn + " = " + product.getId();
+        DatabaseHandler.getInstance().delete(sql);
     }
 }
