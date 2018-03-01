@@ -67,15 +67,18 @@ $(document).ready(function(){
         var JsonMessage={"email":email};
         
         $.ajax({
-            method:'POST',
+            method:'GET',
             url:"SignUp" ,
             dataType: 'json',
             data:JsonMessage,
             success:function (response){
                 if(response==true){
                     $("#register").prop('disabled', false);
+                    $('#emailexist').html("");
+                    
                 }else{
                     $('#emailexist').html("The Email is Already exist");
+                    $("#register").prop('disabled', true);
                 }
                 
             }
@@ -127,46 +130,46 @@ function checkForm(form)
 
     if (password.val()!== "" ) {
         if (password.val().length < 6) {
-            alert("Error: Password must contain at least six characters!");
+           $('#passtext').html("pass length should be more tha 6 character"); 
             //form.pwd1.focus();
             return false;
         }
         
         re = /[0-9]/;
         if (!re.test(password.val())) {
-            alert("Error: password must contain at least one number (0-9)!");
+            $('#passtext').html("password must contain at least one number (0-9)!");
             //form.pass.focus();
             return false;
         }
         re = /[a-z]/;
         if (!re.test(password.val())) {
-            alert("Error: password must contain at least one character (a-z)!");
+            $('#passtext').html("password must contain at least one character (a-z)!");
             //form.pass.focus();
             return false;
         }
 
 
     } else {
-        alert("Error: Please check that you've entered ");
+        $('#passtext').html("pass cannot be empty ");
         //form.pass.focus();
         return false;
     }
     
    
           if (Address.val() === "") {
-        alert("Error: address cannot be blank!");
+        $('#addresstext').html("address cannot be blank!");
         //form.username.focus();
         return false;
     }
     
      if (job.val() === "") {
-        alert("Error: Address cannot be blank!");
+        $('#jobtext').html("job cannot be blank!");
         //form.username.focus();
         return false;
     }
     
     if (creditLimit.val() === "") {
-        alert("Error: ID cannot be blank!");
+        $('#credtext').html("credit cannot be blank!");
         //form.username.focus();
         return false;
     }
@@ -174,7 +177,7 @@ function checkForm(form)
      
     
        if (birthDate.val() === "") {
-        alert("Error:birthDate cannot be blank!");
+        $('#bdatetext').html("job cannot be blank!");
         //form.username.focus();
         return false;
     }

@@ -64,9 +64,9 @@ public class SignUp extends HttpServlet {
         boolean result=userTableOperations.signUpHandler(user);
         if(result){
             //response.sendRedirect("login.html");
-            out.write("true");
+            response.sendRedirect("login.html");
         }else{
-            out.write("false");
+            response.sendRedirect("register.html");
 //            response.sendRedirect("register.html");
         
         }
@@ -88,7 +88,20 @@ public class SignUp extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        processRequest(request, response);
+String email = request.getParameter("email");
+        UserTableOperations userTableOperations=new UserTableOperations();
+            
+        
+        boolean result=userTableOperations.isExist(email);
+        if(result){
+            //response.sendRedirect("login.html");
+            response.getWriter().write("true");
+        }else{
+            response.getWriter().write("false");
+//            response.sendRedirect("register.html");
+        
+        }
     }
 
     /**
@@ -102,8 +115,8 @@ public class SignUp extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String email = request.getParameter("email");
-        response.getWriter().write("true");
+        processRequest(request, response);
+        
         
     }
 
