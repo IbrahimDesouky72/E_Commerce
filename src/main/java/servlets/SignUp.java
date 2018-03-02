@@ -61,15 +61,15 @@ public class SignUp extends HttpServlet {
          UserTableOperations userTableOperations=new UserTableOperations();
             
         
-        //boolean result=userTableOperations.signUpHandler(user);
-        //if(result){
+        boolean result=userTableOperations.signUpHandler(user);
+        if(result){
             //response.sendRedirect("login.html");
             response.sendRedirect("login.html");
-        //}else{
-          //  response.sendRedirect("register.html");
+        }else{
+            response.sendRedirect("register.html");
 //            response.sendRedirect("register.html");
         
-        //}
+        }
 //        out.print(result);
         
         

@@ -40,7 +40,7 @@ public class UserTableOperations {
                         + DatabaseTables.UserTable.addressColumn + " , "
                         + DatabaseTables.UserTable.adminColumn + " )"
                         + " values ( '" + user.getName() + "' , "
-                        + "TO_DATE('" + user.getDate() + "', 'yyyy/mm/dd'),"
+                        + "TO_DATE('" + user.getDate() + "', 'yyyy-mm-dd'),"
                         + "'" + user.getEmail() + "' ,"
                         + "'" + user.getPassword() + "' ,"
                         + "'" + user.getJob() + "' ,"
