@@ -40,7 +40,7 @@ public class UserTableOperations {
                         + DatabaseTables.UserTable.addressColumn + " , "
                         + DatabaseTables.UserTable.adminColumn + " )"
                         + " values ( '" + user.getName() + "' , "
-                        + "TO_DATE('" + user.getDate() + "', 'yyyy/mm/dd'),"
+                        + "TO_DATE('" + user.getDate() + "', 'yyyy-mm-dd'),"
                         + "'" + user.getEmail() + "' ,"
                         + "'" + user.getPassword() + "' ,"
                         + "'" + user.getJob() + "' ,"
@@ -152,4 +152,18 @@ public class UserTableOperations {
         return usersResult;
     }
     // Esraa Eid ends
+    public boolean isExist(String email) {
+        boolean retValue = true;
+        String query = "select * from "
+                + DatabaseTables.UserTable.tableName
+                + " where " + DatabaseTables.UserTable.emailColumn + " = '" + email + "'";
+        try {
+            if (DatabaseHandler.getInstance().select(query).next()) {
+                retValue = false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserTableOperations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retValue;
+    }
 }

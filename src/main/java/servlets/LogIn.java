@@ -13,12 +13,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author IbrahimDesouky
  */
-public class SignUp extends HttpServlet {
+public class LogIn extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,48 +32,27 @@ public class SignUp extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String fname = request.getParameter("fname");
-            String lname=request.getParameter("lname");
-            String userName=fname+" "+lname;
-        String password = request.getParameter("password");
-        String email = request.getParameter("email");
-        String address = request.getParameter("address");
-        String creditLimit= request.getParameter("creditLimit");
-        String birthDate = request.getParameter("birthDate");
-        String job = request.getParameter("job");
-        double creditLimitNumber=Double.parseDouble(creditLimit);
-        
-//            out.print(fname);
-//             out.print(lname);
-//              out.print(email);
-//               out.print(password);
-//                out.print(address);
-//                 out.print(creditLimit);
-//                  out.print(birthDate);
-//                   out.print(job);
-                    
-                    
-                    
+            String email=request.getParameter("email");
+            String password=request.getParameter("password");
+            UserTableOperations userTableOperations=new UserTableOperations();
+            User user=userTableOperations.loginHandler(email, password);
+            if(user!=null){
+                HttpSession userSession=request.getSession(true);
+                userSession.setAttribute("userDate", user);
+                if(user.getAdmin()==0){
+                
+                    out.print("user");
+                }else{
+                    out.print("admin");
+                }
+                
+            }else{
+                out.print("email or pass false");
             
-        User user=new User(userName, birthDate, email, password, job, creditLimitNumber, address, 0);
-         UserTableOperations userTableOperations=new UserTableOperations();
-            
-        
-        boolean result=userTableOperations.signUpHandler(user);
-        if(result){
-            //response.sendRedirect("login.html");
-            response.sendRedirect("login.html");
-        }else{
-            response.sendRedirect("register.html");
-//            response.sendRedirect("register.html");
-        
-        }
-//        out.print(result);
-        
-        
+            }
         }
     }
 
@@ -88,20 +68,7 @@ public class SignUp extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        processRequest(request, response);
-String email = request.getParameter("email");
-        UserTableOperations userTableOperations=new UserTableOperations();
-            
-        
-        boolean result=userTableOperations.isExist(email);
-        if(result){
-            //response.sendRedirect("login.html");
-            response.getWriter().write("true");
-        }else{
-            response.getWriter().write("false");
-//            response.sendRedirect("register.html");
-        
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -116,8 +83,6 @@ String email = request.getParameter("email");
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
-        
     }
 
     /**

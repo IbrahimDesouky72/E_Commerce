@@ -21,16 +21,18 @@
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Register an Account</div>
       <div class="card-body">
-          <form >
+          <form action="SignUp" method="post">
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
                 <label for="fnam">First name</label>
                 <input class="form-control" id="fname" type="text" aria-describedby="nameHelp" name="fname" placeholder="Enter first name" required>
+                <span id='fnametext'></span>
               </div>
               <div class="col-md-6">
                 <label for="lname">Last name</label>
                 <input class="form-control" id="lname" type="text" aria-describedby="nameHelp"  name="lname" placeholder="Enter last name" required>
+                <span id='lnametext'></span>
               </div>
             </div>
           </div>
@@ -45,36 +47,42 @@
               <div class="col-md-6">
                 <label for="password">Password</label>
                 <input class="form-control" id="password" type="password" name="password" placeholder="Password" required>
+                <span id='passtext'></span>
               </div>
               <div class="col-md-6">
                 <label for="confirm_password">Confirm password</label>
                     <input class="form-control" id="confirm_password" type="password" name="confirmPass" placeholder="Confirm password" required>
+                    <span id='passconf'></span>
               </div>
             </div>
           </div>
             <div class="form-group">
             <label for="birthDate">Birth Date</label>
             <input class="form-control" id="birthDate" type="date" aria-describedby="emailHelp" name="birthDate" required>
-          </div>
+            <span id='bdatetext'></span>
+            </div>
             
             <div class="form-group">
             <label for="Address">Address</label>
             <input class="form-control" id="Address" type="text" aria-describedby="emailHelp" name="address" placeholder="Address" required>
-          </div>
+            <span id='addresstext'></span>
+            </div>
             
             <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
                 <label for="job">Job</label>
                 <input class="form-control" id="job" type="text" name="job" placeholder="JOB" required>
+                <span id='jobtext'></span>
               </div>
               <div class="col-md-6">
                 <label for="creditLimit">Credit Limit</label>
                 <input class="form-control" id="creditLimit" type="number" name="creditLimit" placeholder="CreditLimit" required>
+                <span id='credtext'></span>
               </div>
             </div>
           </div>
-              <input type="button" class="btn btn-primary btn-block" value="Register" id="register">
+              <input type="submit" class="btn btn-primary btn-block" value="Register" id="register" disabled>
             
 <!--          <a class="btn btn-primary btn-block" href="login.html">Register</a>-->
         </form>
