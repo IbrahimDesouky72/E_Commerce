@@ -8,6 +8,10 @@
         <servlet-name>GetProductsToAdmin</servlet-name>
         <servlet-class>servlets.GetProductsToAdmin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewCustProducts</servlet-name>
+        <servlet-class>servlets.ViewCustProducts</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>GetUsersToAdmin</servlet-name>
         <url-pattern>/GetUsersToAdmin</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>GetProductsToAdmin</servlet-name>
         <url-pattern>/GetProductsToAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewCustProducts</servlet-name>
+        <url-pattern>/ViewCustProducts</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
