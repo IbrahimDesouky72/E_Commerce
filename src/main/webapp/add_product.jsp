@@ -90,7 +90,7 @@
         <li class="breadcrumb-item active">Add Product</li>
       </ol>
 	   <!-- Add your Code here -->
-           <form action="AddProduct" method="post">
+           <form action="AddProduct" method="post" enctype="multipart/form-data">
            <div class="form-group">
             <div class="form-row">
            <div class="col-md-6">
@@ -101,7 +101,7 @@
            
            <div class="col-md-6">
                 <label for="productimage">Product Image</label>
-                <input class="form-control" id="productimage" type="file" aria-describedby="nameHelp" name="productimage" placeholder="Choose Product Image" required>
+                <input class="form-control" id="productimage" type="file" accept="image/*" aria-describedby="nameHelp" name="productimage" placeholder="Choose Product Image" required>
                 <span id='productimagetext'></span>
            </div><br>
            

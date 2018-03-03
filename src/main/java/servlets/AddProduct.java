@@ -5,12 +5,24 @@
  */
 package servlets;
 
+import controlles.Products;
+import database.ProductTableOperations;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.io.FilenameUtils;
 
 /**
  *
@@ -70,23 +82,85 @@ public class AddProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        try (PrintWriter out = response.getWriter()) {
+        String productName="",productDescription="";
+            int productQuantity=0,productPrice=0;
+            String imageName="";
+            PrintWriter out = response.getWriter();
+        try  {
             
-//            if(!ServletFileUpload.isMultipartContent(request)){
-//   out.println("Nothing to upload");
-//   return; 
-//  }
-        
-            String productName=request.getParameter("productname");
-            double productQuantity=Double.parseDouble(request.getParameter("productquan"));
-            double productPrice=Double.parseDouble(request.getParameter("productprice"));
-            String productDescription=request.getParameter("productdescription");
-            out.print(productDescription);
+            if(!ServletFileUpload.isMultipartContent(request)){
+                out.println("Nothing to upload");
+                return; 
+            }
             
             
-        
+            
+            
+            
+         DiskFileItemFactory factory = new DiskFileItemFactory();
+            
+            //Create a new file upload handler
+            ServletFileUpload upload = new ServletFileUpload(factory);
+            
+            
+           List<FileItem> items = upload.parseRequest(request);
+        for (FileItem item : items) {
+            if (item.isFormField()) {
+                // Process regular form field (input type="text|radio|checkbox|etc", select, etc).
+                String fieldName = item.getFieldName();
+                String fieldValue = item.getString();
+                if(fieldName.equals("productname")){
+                    productName=fieldValue;
+                    //out.println(productName);
+                }else if(fieldName.equals("productdescription")){
+                    productDescription=fieldValue;
+                    //out.println(productDescription);
+                }else if(fieldName.equals("productquan")){
+                    productQuantity=Integer.parseInt(fieldValue);
+                    //out.println(productQuantity);
+                }else if(fieldName.equals("productprice")){
+                    productPrice=Integer.parseInt(fieldValue);
+                    //out.println(productPrice);
+                    
+                }
+                
+                // ... (do your job here)
+            } else {
+                // Process form file field (input type="file").
+                String fieldName = item.getFieldName();
+                if(fieldName.equals("productimage")){
+                   imageName = "images/"+FilenameUtils.getName(item.getName());
+                   //out.println(imageName);
+                   String savingPath = "F:\\ITI\\Servlet & JSP-20180204T105849Z-001\\New Folder\\E_Commerce_Servlet_And_JSP-\\src\\main\\webapp\\images\\";
+                        
+                   item.write(new File(savingPath+item.getName()));
+                       
+                
+                }
+                
+                
+                // ... (do your job here)
+            }
+            
         }
+    } catch (FileUploadException e) {
+        throw new ServletException("Cannot parse multipart request.", e);
+    }   catch (Exception ex) {
+            Logger.getLogger(AddProduct.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        Products product=new Products();
+            product.setImage(imageName);
+            product.setName(productName);
+            product.setDescription(productDescription);
+            product.setQuantity(productQuantity);
+            product.setSalary(productPrice);
+            
+            ProductTableOperations productTableOperations=new ProductTableOperations();
+            productTableOperations.addProduct(product);
+            response.sendRedirect("admin.html");
+        
+        
         
        
     }
