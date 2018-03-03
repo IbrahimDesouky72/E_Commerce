@@ -1,8 +1,16 @@
+<%-- 
+    Document   : add_product
+    Created on : Mar 2, 2018, 5:33:12 PM
+    Author     : toshiba
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
+  <!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -19,7 +27,7 @@
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="js/jquery-3.2.1.min.js"></script>
-  <!--<script src="js/javascript_admin.js"></script>-->
+  <script src="js/javascript_admin.js"></script>
         
 </head>
 
@@ -39,7 +47,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link" ><!--<a class="nav-link" href="tables.html">-->
+          <a class="nav-link" href="manage_product.html"><!--<a class="nav-link" href="tables.html">-->
             <i class="fa fa-fw fa-wrench"></i>
             <span class="nav-link-text">Manage Product</span>
           </a>
@@ -79,21 +87,10 @@
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Manage Product</li>
+        <li class="breadcrumb-item active">Add Product</li>
       </ol>
-	  
-	  <!-- Example DataTables Card-->
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i> Products Table</div>
-        <div class="card-body">
-            <div class="table-responsive" id="users">
-		 <!-- Put table of users here --> 
-		  
-            </div>
-        </div>
-        <div class="card-footer small text-muted"><a class="btn btn-primary" href="add_product.jsp" id="add_product">Add Product</a></div>
-      </div>
+	   <!-- Add your Code here -->
+     
     </div>
       
     <!-- /.container-fluid-->
@@ -145,3 +142,4 @@
 </body>
 
 </html>
+
