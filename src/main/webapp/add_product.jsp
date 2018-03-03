@@ -90,9 +90,52 @@
         <li class="breadcrumb-item active">Add Product</li>
       </ol>
 	   <!-- Add your Code here -->
+           <form action="AddProduct" method="post">
+           <div class="form-group">
+            <div class="form-row">
+           <div class="col-md-6">
+                <label for="productname">Product Name</label>
+                <input class="form-control" id="productname" type="text" aria-describedby="nameHelp" name="productname" placeholder="Enter Product Name" required>
+                <span id='productnametext'></span>
+           </div><br>
+           
+           <div class="col-md-6">
+                <label for="productimage">Product Image</label>
+                <input class="form-control" id="productimage" type="file" aria-describedby="nameHelp" name="productimage" placeholder="Choose Product Image" required>
+                <span id='productimagetext'></span>
+           </div><br>
+           
+           </div>
+            </div>
+           
+           <div class="col-md-6">
+                <label for="productdescription">Product description</label>
+                <textarea rows="4" cols="50" maxlength="500" name="productdescription" required></textarea>
+                <span id='productdessctext'></span>
+           </div><br>
+           
+           <div class="form-group">
+            <div class="form-row">
+           <div class="col-md-6">
+                <label for="productquan">Product Quantity</label>
+                <input class="form-control" id="productquan" type="number" min="1" aria-describedby="nameHelp" name="productquan" placeholder="Enter Product Name" required>
+                <span id='productdessctext'></span>
+           </div><br>
+           
+           <div class="col-md-6">
+                <label for="productprice">Product Price</label>
+                <input class="form-control" id="productprice" type="number" min="1" aria-describedby="nameHelp" name="productprice" placeholder="Enter Product price" required>
+                <span id='productdessctext'></span>
+           </div><br>
+            </div></div>
+           <input type="submit" class="btn btn-primary active btn-lg pull-right" value="Add" id="register"  >
+    </form>
      
+<!--     <input type="file" name="pic" accept="image/*">
+     
+     <textarea rows="4" cols="50" maxlength="500"></textarea>-->
     </div>
-      
+        
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
