@@ -14,6 +14,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -132,8 +133,10 @@ public class AddProduct extends HttpServlet {
                    imageName = "images/"+FilenameUtils.getName(item.getName());
                    //out.println(imageName);
                    String savingPath = "F:\\ITI\\Servlet & JSP-20180204T105849Z-001\\New Folder\\E_Commerce_Servlet_And_JSP-\\src\\main\\webapp\\images\\";
-                        
-                   item.write(new File(savingPath+item.getName()));
+                    ServletContext context = request.getServletContext();
+                    String fullPath = context.getRealPath("/images/");
+                    System.out.println(fullPath+item.getName());
+                   item.write(new File(fullPath+item.getName()));
                        
                 
                 }
