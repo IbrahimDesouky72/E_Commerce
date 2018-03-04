@@ -5,12 +5,8 @@
         <servlet-class>servlets.GetUsersToAdmin</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SignUp</servlet-name>
-        <servlet-class>servlets.SignUp</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>LogIn</servlet-name>
-        <servlet-class>servlets.LogIn</servlet-class>
+        <servlet-name>GetProductsToAdmin</servlet-name>
+        <servlet-class>servlets.GetProductsToAdmin</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ViewCustProducts</servlet-name>
@@ -25,12 +21,8 @@
         <url-pattern>/GetUsersToAdmin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SignUp</servlet-name>
-        <url-pattern>/SignUp</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LogIn</servlet-name>
-        <url-pattern>/LogIn</url-pattern>
+        <servlet-name>GetProductsToAdmin</servlet-name>
+        <url-pattern>/GetProductsToAdmin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ViewCustProducts</servlet-name>

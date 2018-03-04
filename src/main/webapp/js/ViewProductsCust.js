@@ -18,6 +18,7 @@ function ajaxCallBack(responseTxt,statusTxt,xhr){
             result += '<div class="product-item">'
             + '<div class="product product_filter">'
             + '<div class="product_image">'
+            + '<p hidden name"productId"  style="display: inline;">' + responseTxt[i].id + '</p>'
             + '<img src="'+responseTxt[i].image+'" alt="">'
             + '</div>'
             + '<div class="favorite"></div>'
@@ -35,3 +36,25 @@ function ajaxCallBack(responseTxt,statusTxt,xhr){
         alert("Error:"+xhr.status+":"+xhr.statusTxt);
     }
 }
+
+//Favorit Function
+//$(document).ready(function () {
+//    $("favorite").click(function () {
+//        $("favorite").addClass("active");
+//    });
+//});
+
+ $(document).ready(function () {
+
+    //this will attach the class to every target 
+    $(document).on('click', function (event) {
+        $target = $(event.target);
+        if($target.hasClass('favorite')){
+            if($target.hasClass('active')){
+                $target.removeClass('active');
+            }else{
+                $target.addClass('active');
+            }
+        }
+    });
+});
