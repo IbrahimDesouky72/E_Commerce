@@ -52,6 +52,15 @@ function ajaxCallBack_products(responseTxt,statusTxt,xhr){
             var res_price = responseTxt[i].salary;
             var res_image = responseTxt[i].image;
             var res_category = responseTxt[i].category;
+            var res_category_name;
+            
+            if(res_category == 1){
+                res_category_name = 'Men';
+            }else if(res_category == 2){
+                res_category_name = 'Women';
+            }else if(res_category == 3){
+                res_category_name = 'Accessories';
+            }
             
             tr += '<tr>';
                 tr += '<td><img src="'+res_image+'" alt="'+res_name+'" width="100" height="120"></td>';
@@ -59,7 +68,10 @@ function ajaxCallBack_products(responseTxt,statusTxt,xhr){
                 tr += '<td>'+res_description+'</td>';
                 tr += '<td>'+res_quanitity+'</td>';
                 tr += '<td>'+res_price+'</td>';
-                tr += '<td>'+res_category+'</td>';
+                tr += '<td>'+res_category_name+'</td>';
+                tr += '<td><a class="btn btn-primary" href="#" onclick="edit_product('+res_id+')">Edit</a>'
+                +'&nbsp&nbsp<a class="btn btn-primary" href="#" onclick="delete_product('+res_id+')">Delete</a>'
+                +'</td>';
             tr +='</tr>';
         }
             
@@ -70,5 +82,13 @@ function ajaxCallBack_products(responseTxt,statusTxt,xhr){
         
     }else
         alert("Error:"+xhr.status+":"+xhr.statusTxt);
+}
+
+function edit_product(product_id){
+    alert("edit: "+product_id);
+}
+
+function delete_product(product_id){
+    alert("delete: "+product_id);
 }
 
