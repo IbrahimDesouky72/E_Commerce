@@ -60,6 +60,8 @@ function ajaxCallBack_products(responseTxt,statusTxt,xhr){
                 res_category_name = 'Women';
             }else if(res_category == 3){
                 res_category_name = 'Accessories';
+            }else{
+                res_category_name = '';
             }
             
             tr += '<tr>';
@@ -86,6 +88,11 @@ function ajaxCallBack_products(responseTxt,statusTxt,xhr){
 
 function edit_product(product_id){
     alert("edit: "+product_id);
+    ajaxCallToEditProduct();
+}
+
+function ajaxCallToEditProduct() {
+    //$.post("EditProduct",{},,"json");
 }
 
 function delete_product(product_id){
