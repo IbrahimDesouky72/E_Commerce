@@ -4,7 +4,7 @@
         <servlet-name>GetUsersToAdmin</servlet-name>
         <servlet-class>servlets.GetUsersToAdmin</servlet-class>
     </servlet>
-     <servlet>
+    <servlet>
         <servlet-name>AddProduct</servlet-name>
         <servlet-class>servlets.AddProduct</servlet-class>
     </servlet>
@@ -16,7 +16,6 @@
         <servlet-name>SignUp</servlet-name>
         <servlet-class>servlets.SignUp</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>LogIn</servlet-name>
         <servlet-class>servlets.LogIn</servlet-class>
@@ -28,6 +27,10 @@
     <servlet>
         <servlet-name>EditProduct</servlet-name>
         <servlet-class>servlets.EditProduct</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddToCart</servlet-name>
+        <servlet-class>servlets.AddToCart</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>GetUsersToAdmin</servlet-name>
@@ -53,10 +56,13 @@
         <servlet-name>AddProduct</servlet-name>
         <url-pattern>/AddProduct</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>EditProduct</servlet-name>
         <url-pattern>/EditProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddToCart</servlet-name>
+        <url-pattern>/AddToCart</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
