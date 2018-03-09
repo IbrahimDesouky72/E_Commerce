@@ -64,13 +64,18 @@ function ajaxCallBack_products(responseTxt,statusTxt,xhr){
                 res_category_name = '';
             }
             
+            //var product = {res_id:res_id, res_name:res_name, res_description:res_description
+            //, res_quanitity:res_quanitity, res_price:res_price, res_image:res_image, res_category:res_category};
+            
+            //var product = new Product(res_id,res_name,res_description,res_quanitity,res_price,res_image,res_category);
+            
             tr += '<tr>';
-                tr += '<td><img src="'+res_image+'" alt="'+res_name+'" width="100" height="120"></td>';
-                tr += '<td>'+res_name+'</td>';
-                tr += '<td>'+res_description+'</td>';
-                tr += '<td>'+res_quanitity+'</td>';
-                tr += '<td>'+res_price+'</td>';
-                tr += '<td>'+res_category_name+'</td>';
+                tr += '<td><img src="'+res_image+'" alt="'+res_name+'" width="100" height="120" id="img_'+res_id+'"></td>';
+                tr += '<td id="name_'+res_id+'">'+res_name+'</td>';
+                tr += '<td id="desc_'+res_id+'">'+res_description+'</td>';
+                tr += '<td id="quantity_'+res_id+'">'+res_quanitity+'</td>';
+                tr += '<td id="price_'+res_id+'">'+res_price+'</td>';
+                tr += '<td id="category_'+res_id+'">'+res_category_name+'</td>';
                 tr += '<td><a class="btn btn-primary" href="#" onclick="edit_product('+res_id+')">Edit</a>'
                 +'&nbsp&nbsp<a class="btn btn-primary" href="#" onclick="delete_product('+res_id+')">Delete</a>'
                 +'</td>';
@@ -86,9 +91,28 @@ function ajaxCallBack_products(responseTxt,statusTxt,xhr){
         alert("Error:"+xhr.status+":"+xhr.statusTxt);
 }
 
+function Product(res_id,res_name,res_description,res_quanitity,res_price,res_image,res_category){
+    this.res_id = res_id;
+    this.res_name = res_name;
+    this.res_description = res_description;
+    this.res_quanitity = res_quanitity;
+    this.res_price = res_price;
+    this.res_image = res_image;
+    this.res_category = res_category;
+}
+
 function edit_product(product_id){
-    alert("edit: "+product_id);
-    ajaxCallToEditProduct();
+    var name = $('#name_'+product_id).text(); 
+    var img = $('#img_'+product_id).attr('src');
+    var desc = $('#desc_'+product_id).text(); 
+    var quantity = $('#quantity_'+product_id).text();
+    var price = $('#price_'+product_id).text();
+    var category = $('#category_'+product_id).text();
+    
+    alert('edit: '+product_id+','+name+','+desc+','+quantity+','+price+','+category+','+img);
+    window.location.href = "edit_product.jsp?id="+product_id+"&name="+name+"&desc="+desc+"&quantity="+quantity+"&price="+price+"&category="+category+"&img="+img;
+    alert('ccc');
+    //ajaxCallToEditProduct();
 }
 
 function ajaxCallToEditProduct() {
