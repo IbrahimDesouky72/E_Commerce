@@ -5,8 +5,10 @@
  */
 var i = 0;
 
-function refreshCart() {
-    var productId = $('div[id^="tag"]').attr('value');
+function refreshCart(id) {
+    //var productId = $('div[id^="tag"]').attr('value');
+    var productId = id;
+    alert("id="+productId);
     $.ajax({
         url: 'AddToCart',
         type: 'GET',
@@ -18,6 +20,7 @@ function refreshCart() {
 }
 function refreshCounter (val)
 {
+    alert("xxx");
     i++;
     $('#checkout_items').text(val);
 }
