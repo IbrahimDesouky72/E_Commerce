@@ -65,7 +65,29 @@ public class ProductTableOperations {
         }
         return products;
     }
+    public Products getSpecificProducts(String productId) {
+        Products product = new Products();
+        String query = "select * "
+                + " from " + DatabaseTables.ProductsTable.tableName
+                + " where "+ DatabaseTables.ProductsTable.idColumn +" = " + productId;
 
+        ResultSet resultSet = DatabaseHandler.getInstance().select(query);
+        try {
+            while (resultSet.next()) {
+                product.setId(resultSet.getInt(1));
+                product.setName(resultSet.getString(2));
+                product.setDescription(resultSet.getString(3));
+                product.setQuantity(resultSet.getInt(4));
+                product.setImage(resultSet.getString(5));
+                product.setSalary(resultSet.getInt(6));
+                product.setCategory(resultSet.getInt(7));
+            }
+            resultSet.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserTableOperations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return product;
+    }
     public void updateProduct(Products prouduct) {
         //boolean retValue = true;
 

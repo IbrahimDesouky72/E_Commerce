@@ -5,18 +5,37 @@
  */
 package controlles;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+import java.io.Serializable;
+
 
 /**
  *
  * @author M.Gebaly
  */
-public class Products {
+public class Products implements Serializable{
+    
+    @SerializedName("id")
+    @Expose
     private int id;
+    @SerializedName("name")
+    @Expose    
     private String name;
+    @SerializedName("description")
+    @Expose    
     private String description;
+    @SerializedName("quantity")
+    @Expose    
     private int quantity;
+    @SerializedName("image")
+    @Expose    
     private String image;
+    @SerializedName("salary")
+    @Expose    
     private int salary;
+    @SerializedName("category")
+    @Expose    
     private int category;
     
     public Products(){}
