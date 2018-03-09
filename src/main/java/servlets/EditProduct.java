@@ -12,11 +12,17 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 /**
  *
@@ -35,37 +41,53 @@ public class EditProduct extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
         
-        response.setContentType("text/html;charset=UTF-8");
-        
-        PrintWriter out = response.getWriter();
-        String productid = (String)request.getParameter("productid");
-        String productname = (String)request.getParameter("productname");
-        String productdessctextArea = (String) request.getParameter("productdessctextArea");
-        String productquan = request.getParameter("productquan");
-        String productprice = request.getParameter("productprice");
-        String productimage = request.getParameter("productimage");
-        String productcategory = request.getParameter("productcategory");
-        out.print(productid+",name: "+productname+",desc: "+productdessctextArea+",quan: "+productquan+",price: "+productprice+",image: "+productimage+",cat: "+productcategory);
-        
-        /*Products product = new Products();
-        product.setId(Integer.parseInt(productid));
-        product.setName(productname);
-        product.setDescription(productdessctextArea);
-        product.setQuantity(Integer.parseInt(productquan));
-        product.setSalary(Integer.parseInt(productprice));
-        product.setImage(productimage);
-        if(productcategory.equalsIgnoreCase("Men"))
-            product.setCategory(1);
-        else if(productcategory.equalsIgnoreCase("Women"))
-            product.setCategory(2);
-        else if(productcategory.equalsIgnoreCase("Accessories"))
-            product.setCategory(3);
-        else 
-            product.setCategory(0);
-        
-        ProductTableOperations pto = new ProductTableOperations();
-        pto.updateProduct(product);*/
-        out.print("success");
+        try {
+            response.setContentType("text/html;charset=UTF-8");
+            
+            PrintWriter out = response.getWriter();
+            Products product = new Products();
+            
+            DiskFileItemFactory factory = new DiskFileItemFactory();
+            //Create a new file upload handler
+            ServletFileUpload upload = new ServletFileUpload(factory);
+            List<FileItem> items = upload.parseRequest(request);
+            for (FileItem item : items) {
+                if (item.isFormField()) {
+                    String fieldName = item.getFieldName();
+                    String fieldValue = item.getString();
+                    if(fieldName.equals("productname")){
+                        product.setName(fieldValue);
+                    }else if(fieldName.equals("productid")){
+                        product.setId(Integer.parseInt(fieldValue));
+                    }else if(fieldName.equals("productdessctextArea")){
+                        product.setDescription(fieldValue);
+                    }else if(fieldName.equals("productquan")){
+                        product.setQuantity(Integer.parseInt(fieldValue));
+                    }else if(fieldName.equals("productprice")){
+                        product.setSalary(Integer.parseInt(fieldValue));
+                    }else if(fieldName.equals("productimage")){
+                        product.setImage(fieldValue);
+                    }else if(fieldName.equals("productcategory")){
+                        if(fieldValue.equalsIgnoreCase("Men"))
+                            product.setCategory(1);
+                        else if(fieldValue.equalsIgnoreCase("Women"))
+                            product.setCategory(2);
+                        else if(fieldValue.equalsIgnoreCase("Accessories"))
+                            product.setCategory(3);
+                        else 
+                            product.setCategory(0);
+                    }
+                }
+            }
+            //out.print(product.getId()+",name: "+product.getName()+",desc: "+product.getDescription()+",quan: "+product.getQuantity()+",price: "+product.getSalary()+",image: "+product.getImage()+",cat: "+product.getCategory());
+            
+            ProductTableOperations pto = new ProductTableOperations();
+            pto.updateProduct(product);
+            response.sendRedirect("manage_product.html");
+            
+        } catch (FileUploadException ex) {
+            Logger.getLogger(EditProduct.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override

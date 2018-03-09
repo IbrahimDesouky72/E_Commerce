@@ -161,7 +161,7 @@ public class AddProduct extends HttpServlet {
             
             ProductTableOperations productTableOperations=new ProductTableOperations();
             productTableOperations.addProduct(product);
-            response.sendRedirect("admin.html");
+            response.sendRedirect("manage_product.html");
         
         
         
