@@ -56,7 +56,7 @@ function refreshCart(val) {
     $('#shoppingCart').append('<div class="title">Shopping Bag</div>');
     for (var i = 0; i < val.length; i++) 
     {
-        $('#shoppingCart').append('<div class="item"><div class="buttons"><span class="delete-btn"></span><span class="like-btn"></span></div><div class="image"><img width="80" height="90" src="'+products[i].image+'" alt="" /></div><div class="description"><span>'+products[i].name+'</span><span>'+products[i].description+'</span><span>'+products[i].category+'</span></div><div class="quantity"><button class="plus-btn" type="button" name="button"><img src="plus.svg" alt="" /></button><input type="text" name="name" value="'+products[i].quantity+'"><button class="minus-btn" type="button" name="button"><img src="minus.svg" alt="" /></button></div><div class="total-price">$'+products[i].salary+'</div></div>');
+        $('#shoppingCart').append('<div class="item"><div class="buttons"><span class="delete-btn"></span><span class="like-btn"></span></div><div class="image"><img width="80" height="90" src="'+products[i].image+'" alt="" /></div><div class="description"><span>'+products[i].name+'</span><span>'+products[i].description+'</span><span>'+products[i].category+'</span></div><div class="quantity"><button class="plus-btn" type="button" name="button"><img src="plus.svg" alt="" /></button><input type="text" name="name" value="'+products[i].quantity+'"><button class="minus-btn" type="button" name="button"><img src="minus.svg" alt="" /></button></div><div class="total-price">LE'+products[i].salary+'</div></div>');
     }
 
 

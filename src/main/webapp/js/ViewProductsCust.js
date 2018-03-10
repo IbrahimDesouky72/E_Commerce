@@ -19,7 +19,7 @@ function ajaxCallBack(responseTxt,statusTxt,xhr){
             + '<div class="product product_filter">'
             + '<div class="product_image">'
             + '<p hidden name"productId"  style="display: inline;">' + responseTxt[i].id + '</p>'
-            + '<img src="'+responseTxt[i].image+'" alt="">'
+            + '<img width="100" height="200" src="'+responseTxt[i].image+'" alt="">'
             + '</div>'
             + '<div class="favorite"></div>'
             + '<div class="product_info">'
