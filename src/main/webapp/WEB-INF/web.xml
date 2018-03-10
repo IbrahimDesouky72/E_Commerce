@@ -32,6 +32,10 @@
         <servlet-name>AddToCart</servlet-name>
         <servlet-class>servlets.AddToCart</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteProduct</servlet-name>
+        <servlet-class>servlets.DeleteProduct</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>GetUsersToAdmin</servlet-name>
         <url-pattern>/GetUsersToAdmin</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>AddToCart</servlet-name>
         <url-pattern>/AddToCart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteProduct</servlet-name>
+        <url-pattern>/DeleteProduct</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

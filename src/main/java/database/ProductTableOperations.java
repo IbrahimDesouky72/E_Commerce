@@ -103,9 +103,10 @@ public class ProductTableOperations {
         DatabaseHandler.getInstance().update(sql);
     }
 
-    public void deleteProduct(Products product) {
+    public int deleteProduct(int id) {
         String sql = "Delete FROM " + DatabaseTables.ProductsTable.tableName
-                + " WHERE " + DatabaseTables.ProductsTable.idColumn + " = " + product.getId();
-        DatabaseHandler.getInstance().delete(sql);
+                + " WHERE " + DatabaseTables.ProductsTable.idColumn + " = " + id;
+        int i=DatabaseHandler.getInstance().delete(sql);
+        return i;
     }
 }

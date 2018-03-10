@@ -118,6 +118,15 @@ function ajaxCallToEditProduct() {
 }
 
 function delete_product(product_id){
-    alert("delete: "+product_id);
+    var postObject = {"id":product_id };
+    
+    $.post("DeleteProduct" , postObject , function (data) {
+
+        if(data==="1"){
+            window.location.replace("manage_product.html");
+        }else{
+            
+        }
+    });
 }
 
