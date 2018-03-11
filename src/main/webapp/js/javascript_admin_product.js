@@ -16,7 +16,10 @@ function ajaxCallToPopulateTableProducts() {
 function ajaxCallBack_products(responseTxt,statusTxt,xhr){
     if(statusTxt=='success'){
         //alert(responseTxt.msg+" , "+responseTxt.username);
-        var output = '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">'+
+        if(responseTxt.yes == "yes"){
+             window.location.replace("login.html");
+        }else{
+            var output = '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">'+
               '<thead>'
                 +'<tr>'
                   +'<th>Image</th>'
@@ -86,7 +89,7 @@ function ajaxCallBack_products(responseTxt,statusTxt,xhr){
                 +'</table>';
         
         $("#products").html(output);
-        
+        }   
     }else
         alert("Error:"+xhr.status+":"+xhr.statusTxt);
 }
