@@ -36,6 +36,14 @@
         <servlet-name>DeleteProduct</servlet-name>
         <servlet-class>servlets.DeleteProduct</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DoPayment</servlet-name>
+        <servlet-class>servlets.DoPayment</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckPayment</servlet-name>
+        <servlet-class>servlets.CheckPayment</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>GetUsersToAdmin</servlet-name>
         <url-pattern>/GetUsersToAdmin</url-pattern>
@@ -71,6 +79,14 @@
     <servlet-mapping>
         <servlet-name>DeleteProduct</servlet-name>
         <url-pattern>/DeleteProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DoPayment</servlet-name>
+        <url-pattern>/DoPayment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckPayment</servlet-name>
+        <url-pattern>/CheckPayment</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

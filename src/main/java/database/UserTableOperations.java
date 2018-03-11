@@ -166,4 +166,33 @@ public class UserTableOperations {
         }
         return retValue;
     }
+    
+    public boolean checkCreditLimit(int money,int id){
+        
+        boolean retValue = false;
+        
+        try {
+            String query = "select credit_limit from "
+                    + DatabaseTables.UserTable.tableName
+                    + " where " + DatabaseTables.UserTable.idColumn + " = " + id + "";
+            ResultSet resultSet = DatabaseHandler.getInstance().select(query);
+            while (resultSet.next()) {
+                if(resultSet.getInt(DatabaseTables.UserTable.crediteColumn) >= money){
+                    retValue = true;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserTableOperations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return retValue;
+    }
+    
+    public void updateCrediteLimit(int id, double credit){
+        String updatequery = "update " + DatabaseTables.UserTable.tableName
+                        + " set " + DatabaseTables.UserTable.crediteColumn + " = " + credit
+                        + " where " + DatabaseTables.UserTable.idColumn + " = " + id;
+        DatabaseHandler.getInstance().update(updatequery);
+               
+    } 
 }

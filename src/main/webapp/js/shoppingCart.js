@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+var ary = [];
 var products;
 
       $('.minus-btn').on('click', function(e) {
@@ -60,7 +61,7 @@ function refreshCart(val) {
         $('#shoppingCart').append('<div class="item"><div class="buttons"><span class="delete-btn"></span><span class="like-btn"></span></div><div class="image"><img width="80" height="90" src="'+products[i].image+'" alt="" /></div><div class="description"><span>'+products[i].name+'</span><span>'+products[i].description+'</span><span>'+products[i].category+'</span></div><div class="quantity"><button class="plus-btn" type="button" name="button"><img src="plus.svg" alt="" /></button><input class="product_quan" type="text" name="name" value="'+products[i].quantity+'"><button class="minus-btn" type="button" name="button"><img src="minus.svg" alt="" /></button></div><div class="total-price">LE'+products[i].salary+'</div></div>');
     }
     $('#shoppingCart').append('<div class="item">'+
-        '<div><a class ="btn" href="" onclick="buy_products()">Buy Products</a></div>'+
+        '<div><Button class ="btn" onclick="buy_products()">Buy Products</Button></div>'+
       '</div>');
 }
 
@@ -72,9 +73,39 @@ function buy_products(){
     {
         // totalPrice + = selected_quan_by_user + price ;
         totalPrice += product_quan[i].value * products[i].salary;
-        //alert(products[i].id + "quan = " +product_price[i].textContent.substring(2));
-        alert(totalPrice);
+        pushToAry("product_id", products[i].id, "quantity", product_quan[i].value);
     }
-    alert("final: "+totalPrice);
-    
+    ajaxCallToCheckCreditLimit(totalPrice);
+}
+
+function ajaxCallToCheckCreditLimit(totalPrice){
+     $.get("CheckPayment?total_price="+totalPrice,ajaxCallBack_users);
+}
+
+function ajaxCallBack_users(responseTxt,statusTxt,xhr){
+    if(statusTxt=='success'){
+        if(responseTxt == 'true'){
+            alert(arayJsonString);
+            var data_str = JSON.stringify(ary);
+            data_str = encodeURIComponent(data_str);
+            document.location.href = 'DoPayment?products_in_bag='+data_str;
+            //document.location.href = 'DoPayment?products_in_bag='+arayJsonString;
+            /*var x= '';
+            for (i in ary) {
+                x += "<h2>" + ary[i].product_id + "</h2>";
+                x += ary[i].quantity+ "<br>";
+            }
+            alert(x);*/
+        }else{
+            alert("Your credit is Not Enough!");
+        }
+    }else
+        alert("Error:"+xhr.status+":"+xhr.statusTxt);
+}
+
+function pushToAry(name1, val1, name2, val2) {
+   var obj = {};
+   obj[name1] = val1;
+   obj[name2] = val2;
+   ary.push(obj);
 }

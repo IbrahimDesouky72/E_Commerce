@@ -22,5 +22,8 @@ public class Cart {
     }
     public void addToCart(String itemId, Products product){
         cartItems.put(itemId, product);
-    }    
+    } 
+    public void removeAll(){
+        this.cartItems.clear();
+    }
 }

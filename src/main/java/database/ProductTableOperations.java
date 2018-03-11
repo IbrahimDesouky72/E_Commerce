@@ -102,6 +102,14 @@ public class ProductTableOperations {
 
         DatabaseHandler.getInstance().update(sql);
     }
+    
+    public void updateProductById(int product_id, int quan){
+        String sql = "UPDATE " + DatabaseTables.ProductsTable.tableName
+                + " SET " + DatabaseTables.ProductsTable.quantitiyColumn + " = " + quan
+                + " WHERE " + DatabaseTables.ProductsTable.idColumn + " = " +product_id;
+
+        DatabaseHandler.getInstance().update(sql); 
+    }
 
     public int deleteProduct(int id) {
         String sql = "Delete FROM " + DatabaseTables.ProductsTable.tableName
