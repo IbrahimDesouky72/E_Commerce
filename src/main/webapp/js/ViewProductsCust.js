@@ -27,7 +27,7 @@ function ajaxCallBack(responseTxt,statusTxt,xhr){
             + '<div class="product_price">' + responseTxt[i].salary + ' LE</div>'
             + '</div>'
             + '</div>'
-            + '<div class="red_button add_to_cart_button" onclick="refreshCart('+responseTxt[i].id+')" id = "tag<%='+responseTxt[i].id+'%>" value="'+responseTxt[i].id+'" >add to cart</div>'
+            + '<div id = "div'+responseTxt[i].id+'" class="red_button add_to_cart_button" onclick="refreshCart('+responseTxt[i].id+')"  value="'+responseTxt[i].id+'" >add to cart</div>'
             + '</div>';
         }
         

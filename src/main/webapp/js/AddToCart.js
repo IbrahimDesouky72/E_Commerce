@@ -16,6 +16,7 @@ function refreshCart(id) {
         dataType: 'json',
         success: refreshCounter
     });
+    //$('#'+id).children().prop('disabled',true);
 }
 function refreshCounter (val)
 {
