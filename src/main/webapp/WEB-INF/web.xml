@@ -57,8 +57,8 @@
         <servlet-class>servlets.DeleteProduct</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Logout</servlet-name>
-        <servlet-class>servlets.Logout</servlet-class>
+        <servlet-name>GetSessionCounter</servlet-name>
+        <servlet-class>servlets.GetSessionCounter</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>GetUsersToAdmin</servlet-name>
@@ -97,8 +97,8 @@
         <url-pattern>/DeleteProduct</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Logout</servlet-name>
-        <url-pattern>/Logout</url-pattern>
+        <servlet-name>GetSessionCounter</servlet-name>
+        <url-pattern>/GetSessionCounter</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
