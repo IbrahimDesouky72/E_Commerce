@@ -20,6 +20,11 @@
         <filter-name>AdminFilter</filter-name>
         <servlet-name>GetUsersToAdmin</servlet-name>
     </filter-mapping>
+    
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>servlets.Logout</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>GetUsersToAdmin</servlet-name>
         <servlet-class>servlets.GetUsersToAdmin</servlet-class>
@@ -48,6 +53,10 @@
         <servlet-name>EditProduct</servlet-name>
         <servlet-class>servlets.EditProduct</servlet-class>
     </servlet>
+     <servlet>
+        <servlet-name>EditProfile</servlet-name>
+        <servlet-class>servlets.EditProfile</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>AddToCart</servlet-name>
         <servlet-class>servlets.AddToCart</servlet-class>
@@ -72,6 +81,11 @@
         <servlet-name>SignUp</servlet-name>
         <url-pattern>/SignUp</url-pattern>
     </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogIn</servlet-name>
         <url-pattern>/LogIn</url-pattern>
@@ -91,6 +105,10 @@
     <servlet-mapping>
         <servlet-name>EditProduct</servlet-name>
         <url-pattern>/EditProduct</url-pattern>
+    </servlet-mapping>
+       <servlet-mapping>
+        <servlet-name>EditProfile</servlet-name>
+        <url-pattern>/EditProfile</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddToCart</servlet-name>

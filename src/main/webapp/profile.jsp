@@ -55,7 +55,7 @@
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
                                             <ul class="account_selection">
-                                                <li><a href="login.html"><i class="fa fa-sign-in" aria-hidden="true"></i>LogOut</a></li>
+                                                <li><a href="Logout"><i class="fa fa-sign-in" aria-hidden="true"></i>LogOut</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -143,37 +143,34 @@
                         <div class="col-lg-8">
 
 
-                            <input class="form-control" type="text" value="${sessionScope.userData.getName()}"  readonly>
+                            <input class="form-control" type="text" value="${sessionScope.userDate.getName()}"  readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Email:</label>
                         <div class="col-lg-8">
-                            <input class="form-control" type="text" value="${sessionScope.userData.email}"  readonly>
+                            <input class="form-control" type="text" value="${sessionScope.userDate.email}"  readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Job:</label>
                         <div class="col-lg-8">
-                            <input class="form-control" type="text" value="${sessionScope.userData.job}" readonly>
+                            <input class="form-control" type="text" value="${sessionScope.userDate.job}" readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Address:</label>
                         <div class="col-lg-8">
-                            <input class="form-control" type="text" value="${sessionScope.userData.address}" readonly>
+                            <input class="form-control" type="text" value="${sessionScope.userDate.address}" readonly>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="col-lg-3 control-label">BirthDate:</label>
-                        <div class="col-lg-8">
-                            <input class="form-control" type="text" value="${sessionScope.userData.date}" readonly>
-                        </div>
-                    </div>
+                  
+                   
+                   
                     <div class="form-group">
                         <label class="col-lg-3 control-label">CreditLimit:</label>
                         <div class="col-lg-8">
-                            <input class="form-control" type="number"   name="creditLimit" value="${sessionScope.userData.cridet}">
+                            <input class="form-control" type="number"   name="creditLimit" value="${sessionScope.userDate.cridet}" readonly>
                         </div>
                     </div>
 
