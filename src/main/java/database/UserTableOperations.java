@@ -6,8 +6,10 @@
 package database;
 
 import controlles.User;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -75,7 +77,10 @@ public class UserTableOperations {
                 user = new User();
                 user.setId(resultSet.getInt(DatabaseTables.UserTable.idColumn));
                 user.setName(resultSet.getString(DatabaseTables.UserTable.nameColumn));
-                user.setDate(resultSet.getString(DatabaseTables.UserTable.birthdateColumn));
+                Date date = resultSet.getDate(DatabaseTables.UserTable.birthdateColumn);
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                 String dateStr = dateFormat.format(date);
+                user.setDate(dateStr);
                 user.setEmail(resultSet.getString(DatabaseTables.UserTable.emailColumn));
                 user.setPassword(resultSet.getString(DatabaseTables.UserTable.passwordColumn));
                 user.setJob(resultSet.getString(DatabaseTables.UserTable.jobColumn));

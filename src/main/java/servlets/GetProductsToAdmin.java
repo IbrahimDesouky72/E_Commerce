@@ -38,7 +38,12 @@ public class GetProductsToAdmin extends HttpServlet {
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
         // get all users from database :
-        ProductTableOperations pto = new ProductTableOperations();
+          if(request.getAttribute("notfound").equals("yes")){
+            String obj = "{\"yes\":\"yes\"}";
+            out.print(obj);
+            System.out.println("ooooooooo");
+        }else{
+              ProductTableOperations pto = new ProductTableOperations();
         List<Products> products = pto.getAllProducts();
         
         List<String> objs = new ArrayList<String>();
@@ -46,6 +51,8 @@ public class GetProductsToAdmin extends HttpServlet {
             objs.add(createJsonObject(products.get(i)));
         }
         out.print(objs);
+          }
+        
     }
     
     private String createJsonObject(Products m){

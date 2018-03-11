@@ -136,37 +136,32 @@
             <div class="col-lg-8">
                
                 
-                <input class="form-control" type="text" name="name" value="${sessionScope.userData.name}" >
+                <input class="form-control" type="text" name="name" value="${sessionScope.userDate.name}" >
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Email:</label>
             <div class="col-lg-8">
-                <input class="form-control" type="text" name="email" value="${sessionScope.userData.email}" readonly >
+                <input class="form-control" type="text" name="email" value="${sessionScope.userDate.email}" readonly >
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Job:</label>
             <div class="col-lg-8">
-                <input class="form-control" type="text" name="job" value="${sessionScope.userData.job}" >
+                <input class="form-control" type="text" name="job" value="${sessionScope.userDate.job}" >
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Address:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" name="address" value="wlkjfpwe">
+              <input class="form-control" type="text" name="address" value="${sessionScope.userDate.address}">
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">BirthDate:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="date"  name="birthDate" value="2018-8-8">
-            </div>
+         
           </div>
            <div class="form-group">
             <label class="col-lg-3 control-label">CreditLimit:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="number"   name="creditLimit" value="3">
+              <input class="form-control" type="number"   name="creditLimit" value="${sessionScope.userDate.cridet}">
             </div>
           </div>
 

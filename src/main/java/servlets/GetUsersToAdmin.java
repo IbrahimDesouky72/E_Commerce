@@ -35,18 +35,29 @@ public class GetUsersToAdmin extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
-        // get all users from database :
-        UserTableOperations uto = new UserTableOperations();
-        List<User> users = uto.retriveAllUsers();
-        
-        List<String> objs = new ArrayList<String>();
-        for(int i=0;i<users.size();i++){
-            objs.add(createJsonObject(users.get(i)));
+        if(request.getAttribute("notfound").equals("yes")){
+            String obj = "{\"yes\":\"yes\"}";
+            out.print(obj);
+            System.out.println("ooooooooo");
+        }else{
+            System.out.println("nnnnnnnnnnnnn");
+            // get all users from database :
+            UserTableOperations uto = new UserTableOperations();
+            List<User> users = uto.retriveAllUsers();
+
+            List<String> objs = new ArrayList<String>();
+            for (int i = 0; i < users.size(); i++) {
+                objs.add(createJsonObject(users.get(i)));
+            }
+            out.print(objs);
         }
-        out.print(objs);
     }
     
     private String createJsonObject(User m){
+        Gson msg = new Gson();
+        return msg.toJson(m);
+    }
+    private String createJsonString(String m){
         Gson msg = new Gson();
         return msg.toJson(m);
     }

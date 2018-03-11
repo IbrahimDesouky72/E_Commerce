@@ -451,6 +451,12 @@ section
 3.3 Account
 *********************************/
 
+.login 
+{
+    display: none;
+      
+}
+
 .account
 {
 	display: inline-block;

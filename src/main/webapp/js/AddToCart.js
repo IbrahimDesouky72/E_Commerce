@@ -22,3 +22,18 @@ function refreshCounter (val)
     i++;
     $('#checkout_items').text(val);
 }
+
+function getCounterValueOnPageLoaded() {
+    $.ajax({
+        url: 'GetSessionCounter',
+        type: 'POST',
+        contentType: 'application/json',
+        dataType: 'json',
+        success: getCounterValueOnPageLoadedCallback
+    });
+}
+
+function getCounterValueOnPageLoadedCallback(val) {
+    var messages = val;
+    $('#checkout_items').text(val);
+}
