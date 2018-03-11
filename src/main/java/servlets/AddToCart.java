@@ -47,8 +47,12 @@ public class AddToCart extends HttpServlet {
             ProductTableOperations productTableOperations=new ProductTableOperations();
             Products product = productTableOperations.getSpecificProducts(productId);
             //System.out.println(product.getName());
-            shoppingCart.addToCart(productId, product);
-        count++;
+            if(shoppingCart.getCartItems().get(productId)== null)
+            {
+                shoppingCart.addToCart(productId, product);
+                count++;
+            }
+                
         //System.out.println(count);
         session.setAttribute("cart", shoppingCart);
         session.setAttribute("count", count);

@@ -55,7 +55,7 @@
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
                                             <ul class="account_selection">
-                                                <li><a href="login.html"><i class="fa fa-sign-in" aria-hidden="true"></i>LogOut</a></li>
+                                                <li><a href="Logout"><i class="fa fa-sign-in" aria-hidden="true"></i>LogOut</a></li>
                                             </ul>
                                         </li>
                                     </ul>

@@ -65,7 +65,7 @@
                                                                                 </c:if>
                                                                                 
                                                                                 <c:if test="${sessionScope.userDate != null}">
-                                                                                    <li><a href="login.html"><i class="fa fa-sign-in" aria-hidden="true"></i>Logout</a></li>
+                                                                                    <li><a href="Logout"><i class="fa fa-sign-in" aria-hidden="true"></i>Logout</a></li>
                                                                                 </c:if>
                                                                             </div>    
 									</ul>
