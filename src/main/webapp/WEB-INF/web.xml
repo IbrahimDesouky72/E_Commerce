@@ -20,6 +20,11 @@
         <filter-name>AdminFilter</filter-name>
         <servlet-name>GetUsersToAdmin</servlet-name>
     </filter-mapping>
+    
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>servlets.Logout</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>GetUsersToAdmin</servlet-name>
         <servlet-class>servlets.GetUsersToAdmin</servlet-class>
@@ -67,6 +72,11 @@
     <servlet-mapping>
         <servlet-name>SignUp</servlet-name>
         <url-pattern>/SignUp</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogIn</servlet-name>
