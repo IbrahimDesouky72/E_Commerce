@@ -4,6 +4,7 @@
     Author     : IbrahimDesouky
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 ﻿<!DOCTYPE html>
 <html lang="en">
@@ -50,14 +51,26 @@
 
 							
 								<li class="account">
-									<a href="#">
+									<a href="#" >
 										My Account
 										<i class="fa fa-angle-down"></i>
 									</a>
-									<ul class="account_selection">
-										<li><a href="login.html"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-										<li><a href="register.html"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
+                                                                    
+                                                                    
+									<ul class="account_selection " >
+                                                                            <div>
+                                                                                <c:if test="${sessionScope.userDate == null}">
+                                                                                    <li><a href="login.html"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
+                                                                                    <li><a href="register.html"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
+                                                                                </c:if>
+                                                                                
+                                                                                <c:if test="${sessionScope.userDate != null}">
+                                                                                    <li><a href="login.html"><i class="fa fa-sign-in" aria-hidden="true"></i>Logout</a></li>
+                                                                                </c:if>
+                                                                            </div>    
 									</ul>
+                                        
+                                                                     
 								</li>
 							</ul>
 						</div>
@@ -78,8 +91,8 @@
 						<nav class="navbar">
 						
 							<ul class="navbar_user">
-								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+
+								<li><a href="profile.jsp"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 								<li class="checkout">
 									<a href="shoppingCart.html">
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -98,27 +111,6 @@
 
 	</header>
 
-	<div class="fs_menu_overlay"></div>
-	<div class="hamburger_menu">
-		<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
-		<div class="hamburger_menu_content text-right">
-			<ul class="menu_top_nav">
-			
-			
-				<li class="menu_item has-children">
-					<a href="#">
-						My Account
-						<i class="fa fa-angle-down"></i>
-					</a>
-					<ul class="menu_selection">
-						<li><a href="login.html"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-						<li><a href="register.html"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
-					</ul>
-				</li>
-			
-			</ul>
-		</div>
-	</div>
 
 	<!-- Slider -->
 

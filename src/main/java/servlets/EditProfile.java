@@ -43,17 +43,17 @@ public class EditProfile extends HttpServlet {
           
           HttpSession userSession=request.getSession(false);
 
-           
+           User u=null;
        
         String name= request.getParameter("name");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
         String creditLimit= request.getParameter("creditLimit");
-        String birthDate = request.getParameter("birthDate");
         String job = request.getParameter("job");
          String oldPassword = request.getParameter("oldPassword");
          if(request.getParameter("newPassword")==""){
-                 User u=(User) userSession.getAttribute("userDate");
+                 u=(User) userSession.getAttribute("userDate");
+                 
                  newPassword=u.getPassword();      
          }
          else
@@ -62,7 +62,8 @@ public class EditProfile extends HttpServlet {
                  
          }
           
-         
+        String birthDate=u.getDate();
+        
         double creditLimitNumber=Double.parseDouble(creditLimit);
                         
             //User user=new User(name, birthDate, email, newPassword, job, creditLimitNumber, address, 0);
@@ -73,6 +74,7 @@ public class EditProfile extends HttpServlet {
             user.setDate(birthDate);
             user.setJob(job);
             user.setPassword(newPassword);
+            user.setCridet(creditLimitNumber);
             
             
             
