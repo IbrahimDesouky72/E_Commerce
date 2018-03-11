@@ -28,6 +28,10 @@
         <servlet-name>EditProduct</servlet-name>
         <servlet-class>servlets.EditProduct</servlet-class>
     </servlet>
+     <servlet>
+        <servlet-name>EditProfile</servlet-name>
+        <servlet-class>servlets.EditProfile</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>AddToCart</servlet-name>
         <servlet-class>servlets.AddToCart</servlet-class>
@@ -64,6 +68,10 @@
         <servlet-name>EditProduct</servlet-name>
         <url-pattern>/EditProduct</url-pattern>
     </servlet-mapping>
+       <servlet-mapping>
+        <servlet-name>EditProfile</servlet-name>
+        <url-pattern>/EditProfile</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddToCart</servlet-name>
         <url-pattern>/AddToCart</url-pattern>
@@ -72,6 +80,7 @@
         <servlet-name>DeleteProduct</servlet-name>
         <url-pattern>/DeleteProduct</url-pattern>
     </servlet-mapping>
+     
     <session-config>
         <session-timeout>
             30

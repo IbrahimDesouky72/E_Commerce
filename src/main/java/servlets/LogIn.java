@@ -40,7 +40,13 @@ public class LogIn extends HttpServlet {
             UserTableOperations userTableOperations=new UserTableOperations();
             User user=userTableOperations.loginHandler(email, password);
             if(user!=null){
+                  
+            
+               
+               
+                
                 HttpSession userSession=request.getSession(true);
+                 userSession.setAttribute("email",email);
                 userSession.setAttribute("userDate", user);
                 if(user.getAdmin()==0){
                 
