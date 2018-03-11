@@ -64,7 +64,7 @@ function refreshCart(val) {
     $('#shoppingCart').append('<div class="title">Shopping Bag</div>');
     for (var i = 0; i < val.length; i++) 
     {
-        $('#shoppingCart').append('<div class="item"><div class="buttons"><span class="delete-btn"></span><span class="like-btn"></span></div><div class="image"><img width="80" height="90" src="'+products[i].image+'" alt="" /></div><div class="description"><span>'+products[i].name+'</span><span>'+products[i].description+'</span><span>'+products[i].category+'</span></div><div class="quantity"><button class="plus-btn" onclick="incrementQuantity('+products[i].id+','+products[i].quantity+')" type="button" name="button"><img src="plus.svg" alt="" /></button><input id="'+products[i].id+'" class="product_quan" type="text" name="name" value="1"><button class="minus-btn" onclick="decrementQuantity('+products[i].id+','+products[i].quantity+')" type="button" name="button"><img src="minus.svg" alt="" /></button></div><div class="total-price">LE'+products[i].salary+'</div></div>');
+        $('#shoppingCart').append('<div id = "tag'+products[i].id+'" class="item"><div class="buttons"><span class="delete-btn" onclick = "deleteItemFromCart('+products[i].id+')" ></span><span class="like-btn"></span></div><div class="image"><img width="80" height="90" src="'+products[i].image+'" alt="" /></div><div class="description"><span>'+products[i].name+'</span><span>'+products[i].description+'</span><span>'+products[i].category+'</span></div><div class="quantity"><button class="plus-btn" onclick="incrementQuantity('+products[i].id+','+products[i].quantity+')" type="button" name="button"><img src="plus.svg" alt="" /></button><input id="'+products[i].id+'" class="product_quan" type="text" name="name" value="1"><button class="minus-btn" onclick="decrementQuantity('+products[i].id+','+products[i].quantity+')" type="button" name="button"><img src="minus.svg" alt="" /></button></div><div class="total-price">LE'+products[i].salary+'</div></div>');
     }
     $('#shoppingCart').append('<div class="item">'+
         '<div><a class ="btn" href="" onclick="buy_products()">Buy Products</a></div>'+
@@ -84,4 +84,24 @@ function buy_products(){
     }
     alert("final: "+totalPrice);
     
+}
+
+
+function deleteItemFromCart(id) {
+    //var productId = $('div[id^="tag"]').attr('value');
+    var productId = id;
+    $.ajax({
+        url: 'DeleteProuductFromCart',
+        type: 'GET',
+        contentType: 'application/json',
+        data:{"productId" : productId},
+        dataType: 'json',
+        success: deleteItemFromCartCallback
+    });
+}
+
+function deleteItemFromCartCallback(val) {
+    var messages = val;
+
+    $('#tag'+val).remove();
 }

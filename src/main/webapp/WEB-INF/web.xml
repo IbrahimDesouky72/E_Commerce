@@ -64,6 +64,10 @@
         <servlet-name>GetSessionCounter</servlet-name>
         <servlet-class>servlets.GetSessionCounter</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteProuductFromCart</servlet-name>
+        <servlet-class>servlets.DeleteProuductFromCart</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>GetUsersToAdmin</servlet-name>
         <url-pattern>/GetUsersToAdmin</url-pattern>
@@ -107,6 +111,10 @@
     <servlet-mapping>
         <servlet-name>GetSessionCounter</servlet-name>
         <url-pattern>/GetSessionCounter</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteProuductFromCart</servlet-name>
+        <url-pattern>/DeleteProuductFromCart</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
