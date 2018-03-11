@@ -67,13 +67,15 @@ public class DatabaseHandler {
         }
     }
 
-    public void delete(String query) {
+    public int delete(String query) {
+         int i=-1;
         try {
             pres = connection.prepareStatement(query);
-            pres.executeUpdate();
+           i= pres.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return i;
     }
 
     public ResultSet select(String query) {

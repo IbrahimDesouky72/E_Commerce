@@ -109,9 +109,7 @@ function edit_product(product_id){
     var price = $('#price_'+product_id).text();
     var category = $('#category_'+product_id).text();
     
-    alert('edit: '+product_id+','+name+','+desc+','+quantity+','+price+','+category+','+img);
     window.location.href = "edit_product.jsp?id="+product_id+"&name="+name+"&desc="+desc+"&quantity="+quantity+"&price="+price+"&category="+category+"&img="+img;
-    alert('ccc');
     //ajaxCallToEditProduct();
 }
 
@@ -120,6 +118,15 @@ function ajaxCallToEditProduct() {
 }
 
 function delete_product(product_id){
-    alert("delete: "+product_id);
+    var postObject = {"id":product_id };
+    
+    $.post("DeleteProduct" , postObject , function (data) {
+
+        if(data==="1"){
+            window.location.replace("manage_product.html");
+        }else{
+            
+        }
+    });
 }
 

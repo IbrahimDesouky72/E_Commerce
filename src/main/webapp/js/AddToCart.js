@@ -5,8 +5,9 @@
  */
 var i = 0;
 
-function refreshCart() {
-    var productId = $('div[id^="tag"]').attr('value');
+function refreshCart(id) {
+    //var productId = $('div[id^="tag"]').attr('value');
+    var productId = id;
     $.ajax({
         url: 'AddToCart',
         type: 'GET',
@@ -19,5 +20,20 @@ function refreshCart() {
 function refreshCounter (val)
 {
     i++;
+    $('#checkout_items').text(val);
+}
+
+function getCounterValueOnPageLoaded() {
+    $.ajax({
+        url: 'GetSessionCounter',
+        type: 'POST',
+        contentType: 'application/json',
+        dataType: 'json',
+        success: getCounterValueOnPageLoadedCallback
+    });
+}
+
+function getCounterValueOnPageLoadedCallback(val) {
+    var messages = val;
     $('#checkout_items').text(val);
 }

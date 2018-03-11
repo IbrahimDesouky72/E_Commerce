@@ -26,7 +26,7 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 </head>
 
-<body>
+<body onload="getCounterValueOnPageLoaded()">
 
 <div class="super_container">
 
@@ -83,7 +83,7 @@
 								<li class="checkout">
 									<a href="shoppingCart.html">
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-										<span id="checkout_items" class="checkout_items">2</span>
+										<span id="checkout_items" class="checkout_items">0</span>
 									</a>
 								</li>
 							</ul>
