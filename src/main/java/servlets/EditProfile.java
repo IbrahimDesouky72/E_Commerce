@@ -120,14 +120,17 @@ public class EditProfile extends HttpServlet {
         
         
          response.setContentType("text/html;charset=UTF-8");
+         PrintWriter out = response.getWriter();
          
           HttpSession userSession=request.getSession(false);
        
-           String oldPassword = request.getParameter("oldPassword");// request
+           String oldPassword = request.getParameter("oldpassword");// request
+           out.println(oldPassword);
         
            User myUser=(User)  userSession.getAttribute("userDate");
       
              String password=myUser.getPassword(); // session 
+           out.println(password);
        
        if(oldPassword.equals(password)|| oldPassword=="")
        {

@@ -136,46 +136,46 @@
             <div class="col-lg-8">
                
                 
-                <input class="form-control" type="text" name="name" value="${sessionScope.userDate.name}" >
+                <input class="form-control" type="text" name="name" maxlength="30"  value="${sessionScope.userDate.name}" required >
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Email:</label>
             <div class="col-lg-8">
-                <input class="form-control" type="text" name="email" value="${sessionScope.userDate.email}" readonly >
+                <input class="form-control" type="text" name="email" maxlength="30"  value="${sessionScope.userDate.email}" readonly required>
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Job:</label>
             <div class="col-lg-8">
-                <input class="form-control" type="text" name="job" value="${sessionScope.userDate.job}" >
+                <input class="form-control" type="text" name="job" maxlength="30"  value="${sessionScope.userDate.job}" required >
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Address:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" name="address" value="${sessionScope.userDate.address}">
+              <input class="form-control" type="text" name="address" maxlength="40"  value="${sessionScope.userDate.address}" required>
             </div>
          
           </div>
            <div class="form-group">
             <label class="col-lg-3 control-label">CreditLimit:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="number"   name="creditLimit" value="${sessionScope.userDate.cridet}">
+              <input class="form-control" type="number"  maxlength="10"  name="creditLimit" value="${sessionScope.userDate.cridet}" required>
             </div>
           </div>
 
            <div class="form-group">
             <label class="col-md-3 control-label">Old Password:</label>
             <div class="col-md-8">
-                <input class="form-control" type="password"  name="oldPassword" value="" >
+                <input class="form-control" type="password"  id="oldpassword" name="oldPassword" value="" >
                <span id='wrongPassword'></span>
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label"  >New Password:</label>
             <div class="col-md-8">
-              <input  class="form-control" type="password" name="newPassword" value="">
+              <input  class="form-control" type="password" id="newpassword"  onfocus="check()" onblur="release()" name="newPassword" value="">
             </div>
           </div>
           <div class="form-group">

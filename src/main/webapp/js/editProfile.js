@@ -4,13 +4,48 @@
  * and open the template in the editor.
  */
 
+
+
+
+   function check(){
+        
+        if (document.getElementById("oldpassword").value=="")
+        {
+            
+            document.getElementById("EnterOldPasssword").innerHTML="Enter Old Password"
+            $(document).ready(function()
+              {
+             $("#newpassword").attr('maxlength','0');
+           });
+            
+        }
+        
+        
+        
+    }
+
+function release(){
+      
+    document.getElementById("EnterOldPasssword").innerHTML="";
+        $(document).ready(function()
+              {
+             $("#newpassword").attr('maxlength','30');
+           });
+    
+   
+}
+
+
+
+
+
 $(document).ready(function(){
-    $("#oldPassword").focusout(function(){
+    $("#oldpassword").focusout(function(){
        
-        var oldPassword=$("#oldPassword").val();
+        var oldPassword=$("#oldpassword").val();
         
         
-        var JsonMessage={"oldPassword":oldPassword};
+        var JsonMessage={"oldpassword":oldpassword};
         
         $.ajax({
             method:'GET',

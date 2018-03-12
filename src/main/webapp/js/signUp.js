@@ -60,10 +60,6 @@ $(document).ready(function(){
        
         var email=$("#email").val();
         
-        
-        
-        
-        
         var JsonMessage={"email":email};
         
         $.ajax({
