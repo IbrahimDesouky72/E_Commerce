@@ -91,8 +91,9 @@
 						<nav class="navbar">
 						
 							<ul class="navbar_user">
-
+                                                                 <c:if test="${sessionScope.userDate != null}">
 								<li><a href="profile.jsp"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                                                 </c:if>
 								<li class="checkout">
 									<a href="shoppingCart.html">
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
